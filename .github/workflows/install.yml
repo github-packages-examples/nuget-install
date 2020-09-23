@@ -21,7 +21,7 @@ jobs:
         run: dotnet new console
 
       - name: Add Program.cs
-        run: echo 'class Program { static void Main() { System.Console.WriteLine("Hello!"); } }' > Program.cs
+        run: echo 'class Program { static void Main() { NuGetPublish.SayHello(); } }' > Program.cs
 
       - name: Install nuget-publish package
         run: dotnet add package nuget-publish
