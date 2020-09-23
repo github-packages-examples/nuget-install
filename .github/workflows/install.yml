@@ -1,0 +1,22 @@
+on:
+  push:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.x
+          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
+
+      - name: Create a .NET Core console project
+        run: dotnet new console
+
+      - name: Install nuget-publish package
+        run: dotnet add package nuget-publish
