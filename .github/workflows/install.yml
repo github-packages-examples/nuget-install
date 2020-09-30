@@ -16,6 +16,8 @@ jobs:
 
       - name: Run the project
         run: dotnet run
+        env:
+          GITHUB_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
 
   create-and-install:
     runs-on: ubuntu-latest
