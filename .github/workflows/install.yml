@@ -2,6 +2,7 @@ on: [push, repository_dispatch]
 
 env:
   DOTNET_NOLOGO: true
+  OWNER: github-packages-examples
 
 jobs:
   checkout-and-install:
@@ -39,7 +40,7 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.x
-          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+          source-url: https://nuget.pkg.github.com/${{ env.OWNER }}/index.json
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
 
