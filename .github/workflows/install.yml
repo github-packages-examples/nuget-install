@@ -20,19 +20,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
 
-  checkout-no-token:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.x
-
-      - name: Run the project
-        run: dotnet run
-
   create-and-install:
     runs-on: ubuntu-latest
 
