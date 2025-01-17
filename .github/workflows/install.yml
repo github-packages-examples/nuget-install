@@ -19,7 +19,7 @@ jobs:
       - name: Run the project
         run: dotnet run
         env:
-          GITHUB_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   create-and-install:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
           dotnet-version: '8.0.x'
           source-url: https://nuget.pkg.github.com/${{ env.OWNER }}/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create a .NET Core console project
         run: dotnet new console
